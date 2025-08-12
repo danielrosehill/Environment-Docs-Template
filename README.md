@@ -7,6 +7,7 @@ This repository demonstrates a structured approach for providing AI agents with 
 ```
 env-docs/
 ├── README.md                    # This file - explains the pattern
+├── rules.md                     # Guidelines for AI agents about env docs purpose and formatting
 ├── system-metadata.json         # Core system specifications and configuration
 ├── for-agent/                   # Documentation written FOR AI agents
 │   ├── agent-instructions.md    # Primary instructions and context for agents
@@ -26,6 +27,14 @@ This documentation pattern serves to:
 5. **Facilitate Troubleshooting**: Provide quick reference for common issues and solutions
 
 ## File Descriptions
+
+### `rules.md`
+Meta-documentation that provides AI agents with:
+- Context about the purpose and scope of the env-docs repository
+- Guidelines for creating and maintaining environment documentation
+- Formatting standards for timestamps and file naming conventions
+- Documentation scope parameters to distinguish environment docs from project-specific documentation
+- Instructions for maintaining selective, organized documentation that avoids information overload
 
 ### `system-metadata.json`
 Core system information in structured format:
@@ -135,11 +144,121 @@ This pattern can be adapted for different environments:
 2. Agent logs changes in `environment-updates.md`
 3. Human updates `system-metadata.json` if specifications changed
 4. Agent instructions updated if new tools or patterns emerge
-
 ### Troubleshooting
 1. Agent encounters issue
 2. Checks `context-notes.md` for known solutions
 3. Reviews `environment-updates.md` for recent changes that might cause issues
 4. Documents solution in appropriate file for future reference
 
+---
+
+## Integration with AI Coding Assistants
+
+This environment documentation pattern is designed to work seamlessly with AI coding assistants and can be integrated with existing system prompts and custom instructions.
+
+### Compatible AI Tools
+
+This pattern has been tested and works well with:
+- **Windsurf (Roo)** - Codeium's AI coding assistant
+- **Cline** - VS Code extension for AI-powered development
+- **Cursor** - AI-first code editor
+- **Continue** - Open-source AI coding assistant
+- **Other Claude/GPT-based coding tools**
+
+### Integration Strategies
+
+#### 1. System Prompt Enhancement
+Add references to your environment docs in your system prompts:
+
+```markdown
+# Environment Context
+Before starting any task, check the following files for environment-specific context:
+- `env-docs/system-metadata.json` - Core system specifications
+- `env-docs/for-agent/agent-instructions.md` - Primary operational guidelines
+- `env-docs/for-agent/context-notes.md` - Current environment state and patterns
+```
+
+#### 2. Custom Instructions Integration
+For tools like Windsurf/Roo, incorporate environment docs into your custom instructions:
+
+```markdown
+# Environment Documentation
+This project includes structured environment documentation in `env-docs/`.
+Always consult these files for:
+- System specifications and capabilities
+- Tool preferences and authentication
+- Network topology and deployment patterns
+- Recent changes and current environment state
+```
+
+#### 3. Workspace-Specific Configuration
+Many AI assistants support workspace-specific settings. You can:
+- Reference environment docs in workspace configuration files
+- Set up automatic context loading from environment documentation
+- Configure tool preferences based on documented specifications
+
+### Benefits of Integration
+
+#### Enhanced Context Awareness
+- AI assistants understand your specific environment constraints
+- Reduces need to repeatedly explain system specifications
+- Enables more accurate tool and approach recommendations
+
+#### Consistent Behavior Across Sessions
+- Maintains context between different AI assistant sessions
+- Ensures consistent tool preferences and workflows
+- Reduces configuration drift over time
+
+#### Improved Troubleshooting
+- AI assistants can reference documented solutions
+- Faster resolution of environment-specific issues
+- Better understanding of system limitations and capabilities
+
+### Implementation Examples
+
+#### Windsurf/Roo Integration
+```markdown
+# In your Windsurf custom instructions:
+Environment Context: This system uses the env-docs pattern for environment documentation.
+Always check env-docs/system-metadata.json for system specs and env-docs/for-agent/
+for current instructions and context before proceeding with tasks.
+```
+
+#### Cline Integration
+```json
+// In your Cline configuration:
+{
+  "systemMessage": "Check env-docs/ folder for environment context before starting tasks. Use documented tool preferences and follow established patterns.",
+  "contextFiles": [
+    "env-docs/system-metadata.json",
+    "env-docs/for-agent/agent-instructions.md"
+  ]
+}
+```
+
+### Best Practices for AI Assistant Integration
+
+#### 1. Reference Documentation Early
+- Configure AI assistants to check environment docs at session start
+- Include environment context in initial prompts
+- Update AI assistant configurations when environment docs change
+
+#### 2. Maintain Consistency
+- Use the same environment documentation across all AI tools
+- Keep AI assistant configurations synchronized with documented preferences
+- Update both environment docs and AI configurations together
+
+#### 3. Leverage Automation
+- Set up automatic context loading where supported
+- Use workspace-specific configurations for different projects
+- Configure AI assistants to log changes in environment update files
+
+#### 4. Monitor and Iterate
+- Track how well AI assistants follow documented preferences
+- Update environment documentation based on AI assistant feedback
+- Refine integration based on actual usage patterns
+
+This integration approach ensures that your AI coding assistants have consistent, up-to-date context about your environment, leading to more effective collaboration and better results.
+
+ 
  
