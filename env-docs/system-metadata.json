@@ -1,0 +1,102 @@
+{
+  "environment_info": {
+    "last_updated": "2025-08-12T09:52:00Z",
+    "documentation_version": "1.0",
+    "purpose": "Provide AI agents with essential context about the operating environment"
+  },
+  "operating_system": {
+    "distribution": "Kubuntu",
+    "version": "25.04",
+    "base": "Ubuntu",
+    "desktop_environment": "KDE Plasma",
+    "kernel": "Linux 6.14",
+    "architecture": "x86_64",
+    "filesystem": "BTRFS with RAID5",
+    "storage_config": "5 physical drives in RAID5 array"
+  },
+  "hardware": {
+    "cpu": {
+      "model": "Intel Core i7-12700F",
+      "cores": 12,
+      "threads": 20,
+      "architecture": "x86_64"
+    },
+    "memory": {
+      "total_ram": "64 GB",
+      "type": "DDR4"
+    },
+    "gpu": {
+      "model": "AMD Radeon RX 7700 XT",
+      "codename": "gfx1101 / Navi 32",
+      "driver": "amdgpu",
+      "rocm_support": true,
+      "notes": "ROCM installed for LLM development and local AI tasks"
+    },
+    "motherboard": {
+      "model": "MSI PRO B760M-A WIFI",
+      "identifier": "MS-7D99"
+    }
+  },
+  "network": {
+    "primary_interface": "enp6s0",
+    "local_ip": "10.0.0.6",
+    "network_range": "10.0.0.0/24",
+    "location": "Home LAN",
+    "infrastructure": {
+      "gateway": "10.0.0.1 (opnsense)",
+      "proxmox_host": "10.0.0.2",
+      "home_assistant": "10.0.0.3",
+      "home_server": "10.0.0.4",
+      "nas": "10.0.0.50 (Synology DS920+)"
+    },
+    "external_access": {
+      "cloudflare_tunnels": true,
+      "tailscale": true,
+      "notes": "Use Cloudflare IPs and Tailscale endpoints when off-site"
+    }
+  },
+  "user_context": {
+    "username": "daniel",
+    "home_directory": "/home/daniel",
+    "privileges": "sudo access",
+    "location": "Jerusalem, Israel",
+    "timezone": "Asia/Jerusalem (UTC+3)"
+  },
+  "development_environment": {
+    "containerization": {
+      "docker": {
+        "installed": true,
+        "purpose": "Creating working prototypes of services"
+      }
+    },
+    "python": {
+      "environment_manager": "uv (primary)",
+      "fallback": "venv",
+      "gui_frameworks": ["PySide6", "Tauri", "Qt", "Electron"]
+    },
+    "authenticated_clis": [
+      "gh (GitHub CLI)",
+      "wrangler (Cloudflare CLI)",
+      "b2 (Backblaze B2)",
+      "wasabi (Wasabi object storage)",
+      "op (1Password CLI)",
+      "netlify (Netlify CLI)"
+    ],
+    "ai_tools": {
+      "ollama": {
+        "installed": true,
+        "preferred_model": "Llama 3.2"
+      },
+      "rocm": {
+        "installed": true,
+        "purpose": "Local LLM development"
+      }
+    }
+  },
+  "deployment_preferences": {
+    "static_sites": "Netlify CLI",
+    "containerized_services": "Docker with Cloudflare tunnels",
+    "authentication": "Cloudflare authentication (default assumption)",
+    "backup_strategy": "Local backups preferred"
+  }
+}
